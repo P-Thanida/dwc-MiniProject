@@ -1,4 +1,3 @@
-
 const express = require('express'),
     app = express(),
     passport = require('passport'),
@@ -85,7 +84,7 @@ router.get('/foo',
     });
 
 
-    router.route('/students')
+router.route('/students')
     .get((req, res) => res.json(students))
 
 
@@ -112,55 +111,49 @@ router.post('/students',
 
 
     })
-    router.route('/students/:std_id')
+router.route('/students/:std_id')
     .get((req, res) => {
 
-        let ID = students.list.findIndex( item => (item.id === +req.params.std_id))
-        if(ID >= 0)
-        {
+        let ID = students.list.findIndex(item => (item.id === +req.params.std_id))
+        if (ID >= 0) {
             res.json(students.list[ID])
         }
-        else
-        {
-            res.json({status: "Student Error can't find!"})
+        else {
+            res.json({ status: "Student Error can't find!" })
         }
 
     })
 
-    .put( (req,res) => { 
+    .put((req, res) => {
 
-        let ID = students.list.findIndex( item => ( item.id === +req.params.std_id))
-        
-        if( ID >= 0)
-        {
+        let ID = students.list.findIndex(item => (item.id === +req.params.std_id))
+
+        if (ID >= 0) {
             students.list[ID].fname = req.body.fname
             students.list[ID].surname = req.body.surname
             students.list[ID].major = req.body.major
             students.list[ID].gpa = req.body.gpa
-            
+
             res.json(students)
 
 
         }
-        else
-        {
-            res.json({status: "Student Error can't find!"})
+        else {
+            res.json({ status: "Student Error can't find!" })
         }
-            
+
     })
 
     .delete((req, res) => {
 
-        let ID = students.list.findIndex( item => ( item.id === +req.params.std_id))
+        let ID = students.list.findIndex(item => (item.id === +req.params.std_id))
 
-        if(ID>=0)
-        {
-            students.list = students.list.filter( item => item.id !== +req.params.std_id)
+        if (ID >= 0) {
+            students.list = students.list.filter(item => item.id !== +req.params.std_id)
             res.json(students)
         }
-        else
-        {
-            res.json({status: "Student Error can't find!"})
+        else {
+            res.json({ status: "Student Error can't find!" })
         }
 
     })
@@ -205,4 +198,3 @@ app.use((err, req, res, next) => {
 
 // Start Server
 app.listen(port, () => console.log(`Server is running on port ${port}`))
-

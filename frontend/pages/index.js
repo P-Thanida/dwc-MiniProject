@@ -8,12 +8,12 @@ export default function Home({ token }) {
   return (
     <Layout>
     <Head>
-        <title>First Page</title>
+        <title>Home Page</title>
     </Head>
     <div className={styles.container}>
         <Navbar />
         <h1>Home page</h1>
-        No login required!
+        
     </div>
 </Layout>
   )

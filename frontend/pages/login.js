@@ -32,12 +32,12 @@ export default function Login({ token }) {
     const loginForm = () => (
         <div className={styles.gridContainer}>
             <div>
-                Username:
+                Email:
             </div>
             <div>
                 <input type="text"
                     name="username"
-                    placeholder="username"
+                    placeholder=""
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>

@@ -40,10 +40,8 @@ const Profile1 = ({ token }) => {
                 <Navbar />
                 <h1>User profile</h1>
                 <div>
-                    First name : {JSON.stringify(user.fname)} <br></br>
-                    Last name : {JSON.stringify(user.lname)} <br></br>
-                    Address : {JSON.stringify(user.address)} <br></br>
-                    Phone : {JSON.stringify(user.phone)} <br></br>
+
+                    Username : {JSON.stringify(user.username)} <br></br>
                     Email : {JSON.stringify(user.email)}
                 </div>
             </div>

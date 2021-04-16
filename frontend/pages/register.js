@@ -11,6 +11,8 @@ export default function Register({ token }) {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
 
@@ -25,7 +27,7 @@ export default function Register({ token }) {
     const register = async (req, res) => {
         try {
             let result = await axios.post(`${config.URL}/register`,
-                { username, email, password })
+                { username, email, name, surname, password })
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
@@ -45,8 +47,28 @@ export default function Register({ token }) {
             <div>
                 <input type="text"
                     name="username"
-                    placeholder="username"
+                    placeholder=""
                     onChange={(e) => setUsername(e.target.value)}
+                />
+            </div>
+            <div>
+                name:
+            </div>
+            <div>
+                <input type="text"
+                    name="name"
+                    placeholder=""
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </div>
+            <div>
+                Surname:
+            </div>
+            <div>
+                <input type="text"
+                    name="surname"
+                    placeholder=""
+                    onChange={(e) => setSurname(e.target.value)}
                 />
             </div>
             <div>
@@ -55,7 +77,7 @@ export default function Register({ token }) {
             <div>
                 <input type="email"
                     name="email"
-                    placeholder="email"
+                    placeholder=""
                     onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
@@ -64,7 +86,7 @@ export default function Register({ token }) {
             <div>
                 <input type="password"
                     name="password"
-                    placeholder="password"
+                    placeholder=""
                     onChange={(e) => setPassword(e.target.value)} />
             </div>
 
