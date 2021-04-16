@@ -47,7 +47,7 @@ export default function Login({ token }) {
             <div>
                 <input type="password"
                     name="password"
-                    placeholder="password"
+                    placeholder=""
                     onChange={(e) => setPassword(e.target.value)} />
             </div>
         </div>
