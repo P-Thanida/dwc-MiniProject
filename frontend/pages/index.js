@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import StrangerImage from '../images/stranger.jpg'
 import LordImage from '../images/lord.jpg'
 import DeadImage from '../images/deadpool.jpg'
+import {flex, Box} from 'reflexbox'
 
 export default function Home({ token }) {
 
@@ -15,11 +16,12 @@ export default function Home({ token }) {
       </Head>
 
       <div className={styles.container}>
+        <Navbar /> 
         <h1>Home page</h1>
-        <Navbar /> <br></br>
         <img src={StrangerImage} alt='stranger' id='StrangerImage' /> <br></br>
         <img width="343" height="512" src={LordImage} alt='lord' id='LordImage' /> <br></br>
-        <img width="343" height="512" src={DeadImage} alt='deadpool' id='DeadImage' />
+        <img width="343" height="512" src={DeadImage} alt='deadpool' id='DeadImage' /> <br></br>
+       
 
 {/* 
         <style jsx>{`
