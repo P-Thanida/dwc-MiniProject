@@ -52,7 +52,7 @@ export default function Register({ token }) {
                 />
             </div>
             <div>
-                name:
+                Name:
             </div>
             <div>
                 <input type="text"

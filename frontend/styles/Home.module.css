@@ -20,7 +20,7 @@
 }
 
 .gridContainer>div {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #dd9fd0(202, 116, 116, 0.8);
     text-align: left;
     padding: 10px 0;
     font-size: 1.2rem;

@@ -53,9 +53,9 @@ export default function Login({ token }) {
         </div>
     )
 
-    const copyText = () => {
-        navigator.clipboard.writeText(token)
-    }
+    // const copyText = () => {
+    //     navigator.clipboard.writeText(token)
+    // }
 
     return (
         <Layout>
@@ -65,15 +65,15 @@ export default function Login({ token }) {
             <div className={styles.container}>
                 <Navbar />
                 <h1>Login</h1>
-                <div><b>Token:</b> {token.substring(0, 15)}...
+                {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button onClick={copyText}> Copy token </button>
-                </div>
-                <br/>
+                </div> */}
+{/*                 
                 <div>
                     Status:  {status}
                     check: {ischeck}
-                </div>
-                <br />
+                </div> */}
+            
                 {loginForm()}
 
                 <div>
