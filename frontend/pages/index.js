@@ -3,6 +3,8 @@ import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import { motion } from "framer-motion";
+
 // import StrangerImage from '../images/stranger.jpg'
 // import LordImage from '../images/lord.jpg'
 // import DeadImage from '../images/deadpool.jpg'
@@ -27,7 +29,13 @@ export default function Home({ token }) {
           {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya"].map((movie) => (
             <Link href={movie}>
               <a>
-                <img className={styles.image} src={movie + ".jpg"} />
+                <motion.img 
+                layoutId={movie}
+                className={styles.image} 
+                src={movie + ".jpg"} 
+                animate={{ scale: 1}}
+                whileHover={{ scale: 1.1}}
+                />
               </a>
             </Link>
           ))}

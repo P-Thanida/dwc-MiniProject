@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
-import { useRouter } from "next/router";
+import { useRouter } from '..next/router'
+import { motion } from '..framer-motion'
 
 
 
@@ -17,7 +18,10 @@ export default function movie() {
             <div className={styles.container}> <br></br>
                 <Navbar />
                 <h1>{movie}</h1>
-                <img className={styles.image2} src={movie + ".jpg"} />
+                <motion.img 
+                layoutId={movie}
+                className={styles.image2} 
+                src={movie + ".jpg"} />
         </div>
         </Layout>
     );
