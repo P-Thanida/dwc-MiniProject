@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
-import StrangerImage from '../images/stranger.jpg'
-import LordImage from '../images/lord.jpg'
-import DeadImage from '../images/deadpool.jpg'
-import { flex, Box } from 'reflexbox'
+// import StrangerImage from '../images/stranger.jpg'
+// import LordImage from '../images/lord.jpg'
+// import DeadImage from '../images/deadpool.jpg'
+// //import { flex, Box } from 'reflexbox'
 
 
 export default function Home({ token }) {
@@ -16,24 +16,17 @@ export default function Home({ token }) {
     <Layout>
       <Head>
         <title>Home Page</title>
-
       </Head>
+
+
       <div className={styles.container}> <br></br>
         <Navbar />
         <h1>New Movie</h1>
-        <img src={StrangerImage} alt='stranger' id='StrangerImage' />
-        {/* Strange Thing */}
-        <img width="343" height="512" src={LordImage} alt='lord' id='LordImage' />
-        <img width="343" height="512" src={DeadImage} alt='deadpool' id='DeadImage' />
-
-
-
-        {/* <style jsx>{`
-          h1 {
-            background-color: #514f53;
-          }
-      `}</style> */}
-
+        <div className={styles['movie-container']}>
+          {["stranger", "lord", "deadpool", "yesday" , "fantastic", "enola", "tenet", "raya"].map((movie) => (
+            <img className={styles.image} src={movie + ".jpg"} />
+          ))}
+        </div>
       </div>
     </Layout>
   )
