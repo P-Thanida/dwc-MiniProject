@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 // import StrangerImage from '../images/stranger.jpg'
 // import LordImage from '../images/lord.jpg'
 // import DeadImage from '../images/deadpool.jpg'
@@ -23,8 +24,12 @@ export default function Home({ token }) {
         <Navbar />
         <h1>New Movie</h1>
         <div className={styles['movie-container']}>
-          {["stranger", "lord", "deadpool", "yesday" , "fantastic", "enola", "tenet", "raya"].map((movie) => (
-            <img className={styles.image} src={movie + ".jpg"} />
+          {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya"].map((movie) => (
+            <Link href={movie}>
+              <a>
+                <img className={styles.image} src={movie + ".jpg"} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>
