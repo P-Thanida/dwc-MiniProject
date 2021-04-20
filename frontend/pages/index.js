@@ -32,8 +32,8 @@ export default function Home({ token }) {
   )
 }
 
-export function getServerSideProps({ req, res }) {
-  // console.log("token from cookie: ",cookie.get("token")) 
-  // console.log('req: ', req.headers)
-  return { props: { token: req.cookies.token || "" } };
-}
+// export function getServerSideProps({ req, res }) {
+//   // console.log("token from cookie: ",cookie.get("token")) 
+//   // console.log('req: ', req.headers)
+//   return { props: { token: req.cookies.token || "" } };
+// }
