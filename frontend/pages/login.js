@@ -31,7 +31,7 @@ export default function Login({ token }) {
 
     const loginForm = () => (
         <div className={styles.gridContainer}>
-            <div>
+            <div >
                 Email:
             </div>
             <div>
@@ -62,31 +62,35 @@ export default function Login({ token }) {
             <Head>
                 <title>Login</title>
             </Head>
+               <Navbar />
             <div className={styles.container}>
-                <Navbar />
+              
+             
+                  <div className={styles.form}>
                 <h1>Login</h1>
                 {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button onClick={copyText}> Copy token </button>
                 </div> */}
-{/*                 
+                {/*                 
                 <div>
                     Status:  {status}
                     check: {ischeck}
                 </div> */}
-            
+
                 {loginForm()}
 
                 <div>
                     <input type="checkbox"
                         name="IsRememberMe"
-                        onChange={ (e) => setIscheck(e.target.value)}
-                    />Remember me!
+                        onChange={(e) => setIscheck(e.target.value)}
+                    /> Remember me!
                     <br /><br />
                 </div>
-                
-                <div>
+
+                <div className={styles.submit}>
                     <button onClick={login}>Login</button>
                 </div>
+            </div>
             </div>
         </Layout>
     )
