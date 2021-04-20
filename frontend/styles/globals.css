@@ -11,6 +11,9 @@ body {
     width: 80;
     text-align: center;
 }  
+h1{
+	color:#FFFFFF;
+}
 
 a {
   color: inherit;
@@ -19,13 +22,13 @@ a {
 
 * {
   box-sizing: border-box;
-  background-color : #2C2C32 ;
-  color : white;
+  background-color : #000000 ;
+  color : red;
 }
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid red;
+	background-color: red;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -84,7 +87,7 @@ h2 {
 nav{
   display: block;
  text-align: center;
-background-color: #FF4B2B;
+background-color: #c01d00;
 }
 
 
