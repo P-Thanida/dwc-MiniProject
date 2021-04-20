@@ -5,36 +5,26 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { motion } from "framer-motion";
 
-// import StrangerImage from '../images/stranger.jpg'
-// import LordImage from '../images/lord.jpg'
-// import DeadImage from '../images/deadpool.jpg'
-// //import { flex, Box } from 'reflexbox'
-
-
 export default function Home({ token }) {
 
   return (
-
-
     <Layout>
       <Head>
         <title>Home Page</title>
       </Head>
-
-
       <div className={styles.container}> <br></br>
         <Navbar />
         <h1>New Movie</h1>
         <div className={styles['movie-container']}>
-          {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya"].map((movie) => (
+          {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya", "maleficent", "bumblebee", "abominable", "guardians"].map((movie) => (
             <Link href={movie}>
               <a>
-                <motion.img 
-                layoutId={movie}
-                className={styles.image} 
-                src={movie + ".jpg"} 
-                animate={{ scale: 1}}
-                whileHover={{ scale: 1.1}}
+                <motion.img
+                  layoutId={movie}
+                  className={styles.image}
+                  src={movie + ".jpg"}
+                  animate={{ scale: 1 }}
+                  whileHover={{ scale: 1.1 }}
                 />
               </a>
             </Link>
