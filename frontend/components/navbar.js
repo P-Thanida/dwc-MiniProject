@@ -1,7 +1,8 @@
 import Link from 'next/link'
+import styles from '../styles/Home.module.css'
 
 const Navbar = () => (
-    <div>
+    <div className={styles.nav}>
         <Link href="/"><a> Home </a></Link> |
         <Link href="/register"><a> Register </a></Link>  |
         <Link href="/login"><a> Login </a></Link> |
