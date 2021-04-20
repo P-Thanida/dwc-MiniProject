@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
-import { useRouter } from '..next/router'
-import { motion } from '..framer-motion'
+import { useRouter } from 'next/router'
+import { motion } from "framer-motion"
 
 
 
