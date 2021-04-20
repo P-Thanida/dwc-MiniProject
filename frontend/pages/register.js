@@ -14,7 +14,7 @@ export default function Register({ token }) {
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
     const [password, setPassword] = useState('')
-    const [status, setStatus] = useState('')
+    // const [status, setStatus] = useState('')
 
     const profileUser = async () => {
         console.log('token: ', token)
@@ -95,14 +95,14 @@ export default function Register({ token }) {
 
 
     return (
-        <Layout>
-<Navbar />
-            <Head> 
+        <Layout> <br></br>
+            <Navbar />
+            <Head>
                 <title>Register</title>
             </Head>
 
             <div className={styles.container}>
-               
+
                 <h1>Register</h1>
                 {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button
