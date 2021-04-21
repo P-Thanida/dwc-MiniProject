@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React from "react";
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
-import Header from '../components/header'
+
 
 
 import packageJson from "../package.json";
@@ -12,12 +12,8 @@ class About extends React.Component {
 
         super(props);
 
-
-
-
         this.state = {
             email: "s6135512015@phuket.psu.ac.th",
-            // subject: "Next-Movie",
             tags: [
                 "nextjs | ", 
                 "react | ",
@@ -64,17 +60,20 @@ class About extends React.Component {
         return (
 
             <React.Fragment>
-                <div className="container-fluid">
-                    <div className="container">
-                        <div className="jumbotron">
-                            <h1 className="display-4">Next-Movie</h1>
+                <Head>
+                    <title>About</title>
+                </Head>
+                <div className={styles.header}><div></div>Next-Movie</div>  
+                <Navbar />
+                <div className={styles.container}> <br></br>
+                        <div>
+                            <h1>Next-Movie</h1>
                             <section>
                                 <h4>Version: {this.state.version || "1.0.0"}</h4>
-                                <div className="list-group-horizontal-sm mb-4">
+                                <div>
                                     {this.state.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="badge badge-pill badge-dark mr-1 mt-1"
                                         >
                                             {tag}
                                         </span>
@@ -82,28 +81,17 @@ class About extends React.Component {
                                 </div>
                             </section>
 
-                            <hr className="my-4" />
+                            <hr />
                             <address>
-                                <p className="font-italic">
-                                   contact me :
-                                       <a className="badge badge-pill badge-dark ml-1"
-                                        href={this.state.emailLink}>
+                                <p>
+                                   contact me <br></br>
+                                       <a href={this.state.emailLink}>
                                         {this.state.email}
                                     </a>
                                 </p>
                             </address>
-                            {this.state.changelog && (
-                                <React.Fragment>
-                                    <hr className="my-4" />
-                                    <section>
-                                        <h4>Changelog:</h4>
-                                    </section>
-                                    <p className="lead c-dark">{this.state.changelog}</p>
-                                </React.Fragment>
-                            )}
                         </div>
                     </div>
-                </div>
             </React.Fragment>
         );
     }
