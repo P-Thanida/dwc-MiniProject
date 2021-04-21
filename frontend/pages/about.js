@@ -1,11 +1,15 @@
+import Head from 'next/head'
 import React from "react";
 import Navbar from '../components/navbar'
+import styles from '../styles/Home.module.css'
+import Header from '../components/header'
+
 
 import packageJson from "../package.json";
 
 class About extends React.Component {
     constructor(props) {
-        
+
         super(props);
 
 
@@ -13,15 +17,15 @@ class About extends React.Component {
 
         this.state = {
             email: "s6135512015@phuket.psu.ac.th",
-            subject: "Next-Movie",
+            // subject: "Next-Movie",
             tags: [
-                "nextjs",
-                "react",
-                "nodejs",
-                "express",
-                "axios",
-                "vercel",
-                "movies",
+                "nextjs | ", 
+                "react | ",
+                "nodejs | ",
+                "express | ",
+                "axios | ",
+                "vercel | ",
+                "movies ",
             ],
             emailLink: "",
             changelog: "",
