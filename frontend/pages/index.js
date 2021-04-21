@@ -10,10 +10,12 @@ export default function Home({ token }) {
   return (
     <Layout>
       <Head>
-        <title>Home Page</title>
-      </Head>
+        <title>Home Page</title>S
+      </Head>     
+      <div className={styles.header}><div></div>Next-Movie</div>  
+ <Navbar />
       <div className={styles.container}> <br></br>
-        <Navbar />
+        
         <h1>New Movie</h1>
         <div className={styles['movie-container']}>
           {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya", "maleficent", "bumblebee", "abominable", "guardians"].map((movie) => (

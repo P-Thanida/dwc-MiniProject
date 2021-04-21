@@ -5,6 +5,7 @@ const Navbar = () => (
     <div className={styles.nav}>
         <Link href="/"><a> Home </a></Link> |
         <Link href="/about"><a> About </a></Link> | 
+   
         {/* <Link href="/register"><a> Register </a></Link>  |
         <Link href="/login"><a> Login </a></Link> |
         <Link href="/profile"><a> Profile </a></Link> | 
@@ -12,6 +13,8 @@ const Navbar = () => (
         <Link href="/getConfig"><a> Config </a></Link> | 
         {/* <Link href="/foo"><a> Foo </a></Link> | */}
         {/* <Link href="/logout"><a> Logout </a></Link>  */} 
+
+        
     </div>
 )
 

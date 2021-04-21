@@ -1,8 +1,3 @@
-import Header from "./Header";
-
-
-
-
 const layoutStyle = {
   display: "flex",
   flexDirection: "column",
@@ -18,7 +13,6 @@ const contentStyle = {
 
 const Layout = props => (
   <div className="Layout" style={layoutStyle}>
-    <Header />
     <div className="Content" style={contentStyle}>
       {props.children}
     </div>
