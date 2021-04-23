@@ -112,7 +112,7 @@ export default function Register({ token }) {
 
 
             <div>
-                <button onClick={Login}>Register</button>
+                <button onClick={Register}>Register</button>
             </div>
             {/* </div> */}
         </Layout>
