@@ -4,6 +4,7 @@ import Footer from '../components/footer'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { motion } from "framer-motion";
+import AccountImage from '../images/account.png'
 
 export default function Home({ token }) {
   return (
@@ -11,19 +12,18 @@ export default function Home({ token }) {
       <Head>
         <title>Home Page</title>S
       </Head>
-      
+
       <div className={styles.row}>
         <div className={styles.header}><p>Next-Movies</p></div>
         <div className={styles.header2}>
-          <p>
-            <Link target="#" href="/login">login</Link>
-          </p>
+        
+          <div>  <Link href="/register"><a> Register </a></Link> <br></br>
+            <img src={AccountImage} alt='account' id='AccountImage' />
+          </div>
+
         </div>
       </div>
-
-
-
-      <h1>New Movie</h1>
+      <h1 className={styles.h1}>New Movie</h1>
       <div className={styles['movie-container']}>
         {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya", "maleficent", "bumblebee", "abominable", "guardians"].map((movie) => (
           <Link href={movie}>

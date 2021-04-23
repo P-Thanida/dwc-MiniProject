@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import { useState } from 'react'
-
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
@@ -30,32 +29,35 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div  class="login-box">
-        <h1>Login</h1>
         <form>
-            <div class="user-box">
-                <input type="text" 
-                name="" required=""
-                onChange={(e) => setUsername(e.target.value)}></input>
-                    <label>Username</label>
-            </div>
-                <div class="user-box">
-                    <input type="password" 
-                    name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
-                        <label>Password</label>
-                </div>
-                    <a href="#">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                         Submit
-                    </a>
-        </form>
-        </div>
-    )
 
-    
+            <div class="segment">
+                <h1>Sign up</h1>
+            </div>
+
+            <label>
+                <input type="text" placeholder="Email Address" />
+            </label>
+            <label>
+                <input type="password" placeholder="Password" />
+            </label>
+            <button class="red" type="button"><i class="icon ion-md-lock"></i> Log in</button>
+
+            <div class="segment">
+                <button class="unit" type="button"><i class="icon ion-md-arrow-back"></i></button>
+                <button class="unit" type="button"><i class="icon ion-md-bookmark"></i></button>
+                <button class="unit" type="button"><i class="icon ion-md-settings"></i></button>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    <input type="text" placeholder="Email Address" />
+                </label>
+                <button class="unit" type="button"><i class="icon ion-md-search"></i></button>
+            </div>
+
+        </form>
+    )
 
     // const copyText = () => {
     //     navigator.clipboard.writeText(token)
@@ -66,31 +68,36 @@ export default function Login({ token }) {
             <Head>
                 <title>Login</title>
             </Head>
-              
-            
-                {/* <div><b>Token:</b> {token.substring(0, 15)}...
+
+            <div className={styles.container}>
+
+
+                <div className={styles.form}>
+
+                    {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button onClick={copyText}> Copy token </button>
                 </div> */}
-                {/*                 
+                    {/*                 
                 <div>
                     Status:  {status}
                     check: {ischeck}
                 </div> */}
 
-                {loginForm()}
+                    {loginForm()}
 
-                {/* <div>
-                    <input type="checkbox"
-                        name="IsRememberMe"
-                        onChange={(e) => setIscheck(e.target.value)}
-                    /> Remember me!
+                    <div>
+                        <input type="checkbox"
+                            name="IsRememberMe"
+                            onChange={(e) => setIscheck(e.target.value)}
+                        /> Remember me!
                     <br /><br />
-                </div> */}
+                    </div>
 
-                {/* <div className={styles.submit}>
-                    <button onClick={login}>Login</button>
-                </div> */}
-           
+                    <div className={styles.submit}>
+                        <button onClick={login}>Login</button>
+                    </div>
+                </div>
+            </div>
         </Layout>
     )
 }

@@ -3,9 +3,10 @@ import { useState } from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import styles from '../styles/Home.module.css'
-import Navbar from '../components/navbar'
+
 import axios from 'axios'
 import config from '../config/config'
+import Login from './login'
 
 export default function Register({ token }) {
 
@@ -40,71 +41,64 @@ export default function Register({ token }) {
     }
 
     const registerForm = () => (
-        <div className={styles.gridContainer}>
-            <div>
-                Username:
-            </div>
-            <div>
-                <input type="text"
-                    name="username"
-                    placeholder=""
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </div>
-            <div>
-                Name:
-            </div>
-            <div>
-                <input type="text"
-                    name="name"
-                    placeholder=""
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </div>
-            <div>
-                Surname:
-            </div>
-            <div>
-                <input type="text"
-                    name="surname"
-                    placeholder=""
-                    onChange={(e) => setSurname(e.target.value)}
-                />
-            </div>
-            <div>
-                Email:
-            </div>
-            <div>
-                <input type="email"
-                    name="email"
-                    placeholder=""
-                    onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div>
-                Password:
-            </div>
-            <div>
-                <input type="password"
-                    name="password"
-                    placeholder=""
-                    onChange={(e) => setPassword(e.target.value)} />
-            </div>
-
+        <div class="login-box">
+            <form>
+                <h1>Register</h1>
+                <div class="user-box">
+                    <input type="text"
+                        name="username"
+                        required=""
+                        onChange={(e) => setUsername(e.target.value)} />
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="text"
+                        name="name"
+                        required=""
+                        onChange={(e) => setName(e.target.value)} />
+                    <label>Name</label>
+                </div>
+                <div class="user-box">
+                    <input type="text"
+                        name="surname"
+                        required=""
+                        onChange={(e) => setSurname(e.target.value)} />
+                    <label>Surname</label>
+                </div>
+                <div class="user-box">
+                    <input type="text"
+                        name="email"
+                        required=""
+                        onChange={(e) => setEmail(e.target.value)} />
+                    <label>Email</label>
+                </div>                
+                <div class="user-box">
+                    <input type="password" 
+                    name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
+                        <label>Password</label>
+                </div>
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                         Submit
+                    </a>
+            </form>
         </div>
     )
 
-
     return (
         <Layout> <br></br>
-            <Navbar />
+
             <Head>
                 <title>Register</title>
             </Head>
 
-            <div className={styles.container}>
+            {/* <div className={styles.container}>
 
-                <h1>Register</h1>
-                {/* <div><b>Token:</b> {token.substring(0, 15)}...
+                <h1>Register</h1> */}
+            {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button
                         onClick={() => { navigator.clipboard.writeText(token) }}>
                         Copy token
@@ -113,14 +107,14 @@ export default function Register({ token }) {
                 <br />
             Status:  {status}
                 <br /><br /> */}
-                <div className={styles.content}>
-                    {registerForm()}
-                </div>
 
-                <div>
-                    <button onClick={register}>Register</button>
-                </div>
+            {registerForm()}
+
+
+            <div>
+                <button onClick={Login}>Register</button>
             </div>
+            {/* </div> */}
         </Layout>
     )
 }
