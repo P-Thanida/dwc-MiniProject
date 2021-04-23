@@ -75,7 +75,7 @@ html {
     color: #fff;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgb(248, 248, 248);
     outline: none;
     background: transparent;
   }

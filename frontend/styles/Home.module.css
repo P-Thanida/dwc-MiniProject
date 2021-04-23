@@ -7,15 +7,14 @@
     align-items: center;
     width: 1000px;
     background-color: rgb(0, 0, 0);
-    /* color: white; */
-    /* box-shadow: 0 14px 28px rgba(10, 218, 138, 0.692), 0 10px 10px rgba(65, 163, 122, 0.22); */
+   
 }
 
 .content {
     min-width: 25vw;
    
 }
-/* 
+
 .gridContainer {
     display: grid;
     grid-template-columns: 100px auto;
@@ -35,13 +34,12 @@
     margin: 0px 0;
     box-sizing: border-box;
     font-size: 1.2rem;
-    /* color: white; */
-/* }  */
-
+    color: white;
+}
 .movie-contianer {
     display: flex;
     gap: 16px;
-    padding-top: 10cm;
+    
 }
 
 .h1 {
