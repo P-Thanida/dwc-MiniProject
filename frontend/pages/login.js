@@ -1,22 +1,29 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Router from "next/router";
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
 
 export default function Login({ token }) {
-
+    useEffect(() => {
+        let accesstoken = localStorage.getItem('accessToken')
+        if (accesstoken !== null) {
+            Router.push({
+                pathname: "/alreadylogin",
+            });
+        }
+    }, [])
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
     const [ischeck, setIscheck] = useState('')
 
-    const Homepage = () =>
-    Router.push({
-      pathname: "/",
-    });
+    // const Homepage = () =>
+    //     Router.push({
+    //         pathname: "/",
+    //     });
 
     const login = async (req, res) => {
         try {
@@ -27,6 +34,12 @@ export default function Login({ token }) {
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
             setStatus(result.status + ': ' + result.data.user.username)
+            if (token != null) {
+                localStorage.setItem('accessToken', token)
+                Router.push({
+                    pathname: "/alreadylogin",
+                });
+            }
         }
         catch (e) {
             console.log('error: ', JSON.stringify(e.response))
@@ -35,33 +48,33 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div  class="login-box">
-        <h1>Login</h1>
-        <form>
-            <div class="user-box">
-                <input type="text" 
-                name="" required=""
-                onChange={(e) => setUsername(e.target.value)}></input>
-                    <label>Username</label>
-            </div>
+        <div class="login-box">
+            <h1>Login</h1>
+            <form>
                 <div class="user-box">
-                    <input type="password" 
-                    name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
-                        <label>Password</label>
+                    <input type="text"
+                        name="" required=""
+                        onChange={(e) => setUsername(e.target.value)}></input>
+                    <label>Username</label>
                 </div>
-                    <a onClick={() => Homepage()}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div class="user-box">
+                    <input type="password"
+                        name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
+                    <label>Password</label>
+                </div>
+                <a onClick={() => login()}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                          Submit
                     </a>
-                   
-        </form>
+
+            </form>
         </div>
     )
 
-    
+
 
     // const copyText = () => {
     //     navigator.clipboard.writeText(token)
@@ -72,20 +85,20 @@ export default function Login({ token }) {
             <Head>
                 <title>Login</title>
             </Head>
-              
-            
-                {/* <div><b>Token:</b> {token.substring(0, 15)}...
+
+
+            {/* <div><b>Token:</b> {token.substring(0, 15)}...
                 <button onClick={copyText}> Copy token </button>
                 </div> */}
-                {/*                 
+            {/*                 
                 <div>
                     Status:  {status}
                     check: {ischeck}
                 </div> */}
 
-                {loginForm()}
+            {loginForm()}
 
-                {/* <div>
+            {/* <div>
                     <input type="checkbox"
                         name="IsRememberMe"
                         onChange={(e) => setIscheck(e.target.value)}
@@ -93,10 +106,10 @@ export default function Login({ token }) {
                     <br /><br />
                 </div> */}
 
-                {/* <div className={styles.submit}>
+            {/* <div className={styles.submit}>
                     <button onClick={login}>Login</button>
                 </div> */}
-           
+
         </Layout>
     )
 }
