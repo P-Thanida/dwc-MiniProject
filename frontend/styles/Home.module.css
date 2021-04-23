@@ -96,25 +96,33 @@
 }
 
 .nav {
-    background-color: red;
-    /* color: white; */
     /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
     align-items: center;
+}
 
+.movieContainerCard {
+    margin: 20px;
 }
 
 .userButton {
-    width: 80px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 770px) {
+    .userButton {
+        margin-top: 20px;
+        /* color: red; */
+    }
 }
 
 .userButtonContainer {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     color: cornflowerblue;
     width: 10%;
 }
+
 
 .footer {
     background-color: rgb(206, 0, 0);

@@ -7,12 +7,22 @@ import { motion } from "framer-motion";
 import AccountImage from '../images/account.png'
 import Router from "next/router";
 import Navbar from '../components/navbar'
+import { useRouter } from 'next/router'
 import {
   Button
   , Card
 } from 'antd'
 
 export default function Home({ token }) {
+  const route = useRouter()
+  const gotoLogin = () => {
+
+    route.push('/login')
+  }
+  const gotoRegister = () => {
+
+    route.push('/register')
+  }
   return (
     <Layout>
       <Head>
@@ -32,8 +42,8 @@ export default function Home({ token }) {
       </div> */}
       {/*  */}
 
-      <Navbar />
-      <Card>
+      <Navbar login={() => gotoLogin()} register={() => gotoRegister()} />
+      <Card className={styles.movieContainerCard}>
         <div className={styles['movie-container']}>
           {["stranger", "lord", "deadpool", "yesday", "fantastic", "enola", "tenet", "raya", "maleficent", "bumblebee", "abominable", "guardians"].map((movie) => (
             <Link href={movie}>
