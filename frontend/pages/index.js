@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { motion } from "framer-motion";
 import AccountImage from '../images/account.png'
+import Router from "next/router";
 
 export default function Home({ token }) {
   return (

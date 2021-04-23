@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import { useState } from 'react'
-
+import Router from "next/router";
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
@@ -12,6 +12,11 @@ export default function Login({ token }) {
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
     const [ischeck, setIscheck] = useState('')
+
+    const Homepage = () =>
+    Router.push({
+      pathname: "/",
+    });
 
     const login = async (req, res) => {
         try {
@@ -44,13 +49,14 @@ export default function Login({ token }) {
                     name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
                         <label>Password</label>
                 </div>
-                    <a href="#">
+                    <a onClick={() => Homepage()}>
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
                          Submit
                     </a>
+                   
         </form>
         </div>
     )

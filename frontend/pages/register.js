@@ -2,20 +2,24 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import styles from '../styles/Home.module.css'
-
 import axios from 'axios'
 import config from '../config/config'
-import Login from './login'
+import Router from "next/router";
+
+
 
 export default function Register({ token }) {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
     const [password, setPassword] = useState('')
-    // const [status, setStatus] = useState('')
+    const [status, setStatus] = useState('')
+    // const router = useRouter()
+
+    const loginpage = () =>
+    Router.push({
+      pathname: "/login",
+    });
 
     const profileUser = async () => {
         console.log('token: ', token)
@@ -28,7 +32,7 @@ export default function Register({ token }) {
     const register = async (req, res) => {
         try {
             let result = await axios.post(`${config.URL}/register`,
-                { username, email, name, surname, password })
+                { username, email, password })
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
@@ -53,68 +57,58 @@ export default function Register({ token }) {
                 </div>
                 <div class="user-box">
                     <input type="text"
-                        name="name"
-                        required=""
-                        onChange={(e) => setName(e.target.value)} />
-                    <label>Name</label>
-                </div>
-                <div class="user-box">
-                    <input type="text"
-                        name="surname"
-                        required=""
-                        onChange={(e) => setSurname(e.target.value)} />
-                    <label>Surname</label>
-                </div>
-                <div class="user-box">
-                    <input type="text"
                         name="email"
                         required=""
                         onChange={(e) => setEmail(e.target.value)} />
                     <label>Email</label>
-                </div>                
-                <div class="user-box">
-                    <input type="password" 
-                    name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
-                        <label>Password</label>
                 </div>
-                <a href="#">
+                <div class="user-box">
+                    <input type="password"
+                        name="password" required="" onChange={(e) => setPassword(e.target.value)}></input>
+                    <label>Password</label> 
+                    <br />
+                        Status:  {status}
+                </div> 
+                <a onClick={register} href="#">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                          Submit
+                    </a><br></br>         
+                    <a  onClick={() => loginpage()}>         
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                         Login
                     </a>
+
             </form>
+
+
         </div>
     )
 
-    return (
-        <Layout> <br></br>
 
+    return (
+        <Layout>
             <Head>
                 <title>Register</title>
             </Head>
-
-            {/* <div className={styles.container}>
-
-                <h1>Register</h1> */}
-            {/* <div><b>Token:</b> {token.substring(0, 15)}...
+        
+            <div>
+                <div><b>Token:</b> {token.substring(0, 15)}...
                 <button
                         onClick={() => { navigator.clipboard.writeText(token) }}>
                         Copy token
                 </button>
                 </div>
-                <br />
-            Status:  {status}
-                <br /><br /> */}
-
-            {registerForm()}
-
-
-            <div>
-                <button onClick={Register}>Register</button>
+                <br />                      
+                    {registerForm()}
+                
+               
             </div>
-            {/* </div> */}
         </Layout>
     )
 }
