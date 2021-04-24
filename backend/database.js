@@ -9,7 +9,7 @@ let users = {
 
 let students = {
     students: [
-        { id: 1, fname: "Thanida", surname: "Wichaidit", major: "CoE", gpa: 2.5 }
+        { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", problem: "Broken water pipe" }
     ]
 }
 
