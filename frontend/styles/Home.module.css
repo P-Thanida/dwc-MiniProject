@@ -12,11 +12,18 @@
     min-width: 25vw;
 }
 
-   
+.title {
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 2rem;
+    font-style: italic;
+}
 
 
 
-.header{
+
+.header {
     background-color: #D94F70;
     color: white;
     height: 60px;
@@ -24,28 +31,53 @@
     text-align: left;
     font-weight: bolder;
 }
-.nav{
+
+.nav {
     background-color: #D94F70;
-   
-   
-    text-align: left; 
+
+
+    text-align: left;
     color: white;
     text-align: center;
     font-size: medium;
     padding-top: 2%;
- 
+
 }
 
-.charecter{
+.charecter {
     text-align: center;
 }
 
-.form1{
+.form1 {
     text-align: left;
     flex-direction: column;
 
 }
 
-.form2{
+.form2 {
     text-align: right;
+}
+
+.cardform {
+    max-width: 30%;
+    height: 300px;
+}
+
+.formCrossAxis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reporterCard {
+
+    margin: 20px;
+    max-width: 300px;
+}
+
+.cardArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }

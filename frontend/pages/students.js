@@ -1,10 +1,12 @@
 import Layout from "../components/layout"
 import Header from "../components/header"
 import AuthStudents from "../components/AuthStudent"
-import Styles from "../styles/Home.module.css"
+import styles from "../styles/Home.module.css"
+import { Col, Row, Card, Space, Divider } from 'antd'
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import config from '../config/config'
+import { Form, Input, Button } from 'antd'
 
 
 const URL = `${config.URL}/students`
@@ -52,81 +54,64 @@ const Problems = ({ token }) => {
 
 
 
+
     }
 
     const printStudents = () => {
-        if (students.list && students.list.length)
 
+        if (students.list && students.list.length)
             return students.list.map((item, index) =>
             (
-            <div>
-            <div class="login-box"><li key={index}>
-
-                ชื่อ: {item.fname} <br></br>
-                นามสกุล: {item.surname} <br></br>
-                ห้อง: {item.room} <br></br>
-                แจ้งซ้อม: {item.problem}<br></br>
-
-                
-                <button onClick={() => updateStudent(item.id)}>Update</button>
-                <button onClick={() => deleteStudent(item.id)}>Delete</button>
-            </li>
-            </div>
-            </div>                      
+                <Card title={item.fname + " " + item.surname} className={styles.reporterCard}>
+                    <p> ห้อง : {item.room}</p>
+                    <p> ปัญหา : {item.problem}</p>
+                    <Button style={{ width: 100, marginRight: 10 }} onClick={() => updateStudent(item.id)} type="primary">Update</Button>
+                    <Button style={{ width: 100 }} onClick={() => deleteStudent(item.id)} >Remove</Button>
+                </Card>
             )
             )
     }
-    const insertForm = () => (
-        <div class="login-box">
-        <form>
-            <div class="user-box">
-                <input type="text"
-                    name="" required=""
-                    onChange={(e) => setFname(e.target.value)}></input>
-                <label>ชื่อ</label>
-            </div>
-            <div class="user-box">
-                <input type="text"
-                    name="" required="" onChange={(e) => setSurname(e.target.value)}></input>
-                <label>นามสกุล</label>
-            </div>
-            <div class="user-box">
-                <input type="text"
-                    name="" required="" onChange={(e) => setRoom(e.target.value)}></input>
-                <label>ห้อง</label>
-            </div>
-            <div class="user-box">
-                <input type="text"
-                    name="" required="" onChange={(e) => setProblem(e.target.value)}></input>
-                <label>แจ้งซ้อม</label>
-            </div>
-            <a onClick={() => addStudent(fname, surname, room, problem)}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                     Add
-                </a>
-
-        </form>
-        </div>
-    )
 
     return (
         <Layout>
-            <div >
-                <Header />
-                <br></br>
-               
-                {insertForm()}
-                 {printStudents()}
-                
 
+            <Header />
+            <div>
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
+                    <Card className={styles.cardform}>
+                        <div style={{ fontSize: 24, padding: 10, textAlign: "center" }}>แจ้งปัญหา</div>
+                        <Form>
+                            <div className={styles.formCrossAxis}>
+                                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                                    <Input type="text " style={{ width: 200, marginRight: 5 }} placeholder="ชื่อ" onChange={(e) => setFname(e.target.value)}></Input>
 
+                                    <Input style={{ width: 200, }} placeholder="สกุล" onChange={(e) => setSurname(e.target.value)}></Input>
+                                </div>
+                                <Input style={{ marginTop: 5, }} placeholder="ห้อง" onChange={(e) => setRoom(e.target.value)}></Input>
+                                <Input style={{ marginTop: 5, marginBottom: 5 }} placeholder="ปัญหา" onChange={(e) => setProblem(e.target.value)}></Input>
+                                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
 
+                                    <Button style={{ width: 80, margin: 5 }} type="primary" onClick={() => addStudent(fname, surname, room, problem)}>ส่ง</Button>
 
+                                    <Button style={{ width: 80, margin: 5 }} type="">ล้าง</Button>
+
+                                </div>
+                            </div>
+                        </Form>
+
+                    </Card>
+                </div>
+                <div>
+                    <Divider></Divider>
+                    <div style={{ textAlign: "center", fontSize: 18, padding: 10 }}>Reporter</div>
+                    <div className={styles.cardArea}>
+                        {
+                            printStudents()
+                        }
+                    </div>
+                </div>
             </div>
-        </Layout>
+        </Layout >
     )
 }
 

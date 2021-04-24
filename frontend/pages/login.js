@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '../components/header'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
