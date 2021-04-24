@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
-import Navbar from '../components/navbar'
+
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
+import Header from '../components/header'
 import axios from 'axios'
 import config from '../config/config'
 
@@ -19,18 +20,16 @@ export default function Logout({ token }) {
         let result = await axios.get(`${config.URL}/logout`, { withCredentials: true })
         setStatus("Logout successful")
     }
- 
+
     return (
         <Layout>
             <Head>
                 <title>User profile</title>
             </Head>
-            <div className={styles.container}>
-                <Navbar />
+            <div className={styles.charecter}>
+                <Header />
                 <h1>Logout</h1>
-                <div>
-                    <h2> {status}  </h2>
-                </div>
+                {status}
             </div>
         </Layout>
     )

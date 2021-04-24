@@ -1,18 +1,11 @@
-
-
-const headerStyle = {
-  backgroundColor: "red",
-  color: "white",
-  width: "100%",
-  height: "50px",
-  fontsize: "1000px"
-};
+import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import Navbar from '../components/navbar'
 
 const Header = () => (
-  <div > <br></br>
-    <div  className="Header" style={headerStyle}>Next-Movie</div>    
-  </div>
-);
-export default Header;
+    <div className={styles.header}>
+          <Navbar />
+    </div>
+)
 
-
+export default Header

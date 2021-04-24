@@ -2,10 +2,10 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
+import styles from '../styles/Home.module.css'
+import Header from '../components/header'
 import axios from 'axios'
 import config from '../config/config'
-import Router from "next/router";
-
 
 
 export default function Register({ token }) {
@@ -14,12 +14,6 @@ export default function Register({ token }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
-    // const router = useRouter()
-
-    const loginpage = () =>
-    Router.push({
-      pathname: "/login",
-    });
 
     const profileUser = async () => {
         console.log('token: ', token)
@@ -75,18 +69,9 @@ export default function Register({ token }) {
                     <span></span>
                     <span></span>
                          Submit
-                    </a><br></br>         
-                    <a  onClick={() => loginpage()}>         
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                         Login
                     </a>
 
             </form>
-
-
         </div>
     )
 
@@ -96,19 +81,9 @@ export default function Register({ token }) {
             <Head>
                 <title>Register</title>
             </Head>
-        
-            <div>
-                <div><b>Token:</b> {token.substring(0, 15)}...
-                <button
-                        onClick={() => { navigator.clipboard.writeText(token) }}>
-                        Copy token
-                </button>
-                </div>
-                <br />                      
-                    {registerForm()}
-                
-               
-            </div>
+            <Header /> 
+              <br></br>                       
+            {registerForm()}                    
         </Layout>
     )
 }

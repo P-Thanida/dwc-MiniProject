@@ -1,7 +1,6 @@
 import Layout from "../components/layout"
-import Navbar from "../components/navbar"
 import AuthStudents from "../components/AuthStudent"
-import Styles from "../styles/Home.module.css"
+import Header from '../components/header'
 import axios from 'axios'
 import { useState, useEffect } from "react"
 
@@ -12,7 +11,7 @@ const ShowStudents = ({token}) => {
 
     const [students, setStudents] = useState({
         list: [
-            { id: 1, fname: "Pai", surname: "Thanida", major: "CoE", gpa: 2.64 }
+            { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", problem: "Broken water pipe" }
         ]
     })
 
@@ -32,18 +31,18 @@ const ShowStudents = ({token}) => {
 
             return students.list.map((item, index) =>
             (<li key={index}>
-                name: {item.fname},
-                surname: {item.surname},
-                major: {item.major},
-                gpa: {item.gpa}
+                ชื่อ: {item.fname}<br></br>
+                นามสกุล: {item.surname}<br></br>
+                ห้อง: {item.room}<br></br>
+                แจ้งซ้อม: {item.problem}<br></br>
             </li>)
             )
     }
 
     return (
         <Layout>
-            <div className={Styles.container}>
-                <Navbar />
+            <div >
+                <Header />
                 <br></br>
                 {JSON.stringify(students.students)}
                 <ul>

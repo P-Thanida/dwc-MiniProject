@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import withAuth from '../components/withAuth'
 import config from '../config/config'
-
+import Header from '../components/header'
 
 const Profile1 = ({ token }) => {
 
@@ -30,30 +30,26 @@ const Profile1 = ({ token }) => {
         }
 
     }
-
+ 
     return (
         <Layout>
             <Head>
-                <title>User profile</title>
+                <title>Profile</title>
             </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>User profile</h1>
+            <div >
+                <Header />
+                <h1>Profile</h1>
                 <div>
-                    First name : {JSON.stringify(user.fname)} <br></br>
-                    Last name : {JSON.stringify(user.lname)} <br></br>
-                    Address : {JSON.stringify(user.address)} <br></br>
-                    Phone : {JSON.stringify(user.phone)} <br></br>
-                    Email : {JSON.stringify(user.email)}
+                <h2>    Username is <br></br>
+                    {JSON.stringify(user.username)}</h2>
                 </div>
             </div>
-          
         </Layout>
     )
 }
 
 export default withAuth(Profile1)
 
-export function getServerSideProps({req, res}) {
-    return {props: {token: req.cookies.token || "" } };
+export function getServerSideProps({ req, res }) {
+    return { props: { token: req.cookies.token || "" } };
 }

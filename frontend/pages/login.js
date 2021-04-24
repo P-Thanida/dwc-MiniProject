@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import { useState } from 'react'
-import Router from "next/router";
+import Header from '../components/header'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
@@ -11,12 +11,6 @@ export default function Login({ token }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
-    const [ischeck, setIscheck] = useState('')
-
-    const Homepage = () =>
-    Router.push({
-      pathname: "/",
-    });
 
     const login = async (req, res) => {
         try {
@@ -26,7 +20,7 @@ export default function Login({ token }) {
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
-            setStatus(result.status + ': ' + result.data.user.username)
+            setStatus(result.status)
         }
         catch (e) {
             console.log('error: ', JSON.stringify(e.response))
@@ -35,68 +29,46 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div  class="login-box">
-        <h1>Login</h1>
-        <form>
-            <div class="user-box">
-                <input type="text" 
-                name="" required=""
-                onChange={(e) => setUsername(e.target.value)}></input>
-                    <label>Username</label>
-            </div>
+        <div class="login-box">
+            <h1>Login</h1><br></br>
+            <form>
                 <div class="user-box">
-                    <input type="password" 
-                    name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
-                        <label>Password</label>
+                    <input type="text"
+                        name="" required=""
+                        onChange={(e) => setUsername(e.target.value)}></input>
+                    <label>Username</label>
                 </div>
-                    <a onClick={() => Homepage()}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                         Submit
+                <div class="user-box">
+                    <input type="password"
+                        name="" required="" onChange={(e) => setPassword(e.target.value)}></input>
+                    <label>Password</label>
+                        Status:  {status}
+                </div >
+                <a onClick={login}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                         Login
                     </a>
-                   
-        </form>
+
+
+            </form>
         </div>
     )
 
-    
-
-    // const copyText = () => {
-    //     navigator.clipboard.writeText(token)
-    // }
+    const copyText = () => {
+        navigator.clipboard.writeText(token)
+    }
 
     return (
         <Layout>
             <Head>
                 <title>Login</title>
             </Head>
-              
-            
-                {/* <div><b>Token:</b> {token.substring(0, 15)}...
-                <button onClick={copyText}> Copy token </button>
-                </div> */}
-                {/*                 
-                <div>
-                    Status:  {status}
-                    check: {ischeck}
-                </div> */}
-
-                {loginForm()}
-
-                {/* <div>
-                    <input type="checkbox"
-                        name="IsRememberMe"
-                        onChange={(e) => setIscheck(e.target.value)}
-                    /> Remember me!
-                    <br /><br />
-                </div> */}
-
-                {/* <div className={styles.submit}>
-                    <button onClick={login}>Login</button>
-                </div> */}
-           
+            <Header />
+            <br></br>
+            {loginForm()}
         </Layout>
     )
 }
