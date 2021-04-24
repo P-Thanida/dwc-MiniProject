@@ -7,7 +7,7 @@ import axios from 'axios'
 import config from '../config/config'
 
 export default function Login({ token }) {
-   
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
@@ -20,6 +20,7 @@ export default function Login({ token }) {
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
+            localStorage.setItem('accessToken', result.data.token)
             setStatus(result.status)
         }
         catch (e) {

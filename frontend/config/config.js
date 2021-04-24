@@ -1,4 +1,4 @@
-const LOCAL_URL = 'https://arcane-beyond-56310.herokuapp.com/api';
+const LOCAL_URL = 'http://localhost/api';
 const PROD_URL = 'https://arcane-beyond-56310.herokuapp.com/api';
 
 console.log('node env', process.env.NODE_ENV);

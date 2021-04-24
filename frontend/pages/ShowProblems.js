@@ -6,8 +6,8 @@ import { useState, useEffect } from "react"
 
 import config from '../config/config'
 
- const URL = `${config.URL}/problems`
-const ShowProblems = ({token}) => {
+const URL = `${config.URL}/problems`
+const ShowProblems = ({ token }) => {
 
     const [problems, setProblems] = useState({
         list: [
@@ -16,6 +16,7 @@ const ShowProblems = ({token}) => {
     })
 
     useEffect(() => {
+
         getProblems()
     }, [])
 
@@ -50,7 +51,7 @@ const ShowProblems = ({token}) => {
                     <h1>
                         Please Log in
                     </h1>
-                    {printProblems()}
+
                 </ul>
             </div>
         </Layout>
