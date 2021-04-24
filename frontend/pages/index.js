@@ -50,10 +50,9 @@ export default function Home({ token }) {
       </Head>
       <div >
         <Header />
-
-        <div className={styles.title}>Welcome to the system to report repair.</div>
-
-
+        <div className={styles.title}>Welcome to the system to report repair<br></br>
+          <div style={{ textAlign: 'left' }}>ปัญหาขณะนี้</div>
+        </div>
         <Card style={{ marrgin: 10 }}>
           <Table
             style={{ fontSize: 18 }}
@@ -62,7 +61,6 @@ export default function Home({ token }) {
             pagination={false}>
           </Table>
         </Card>
-
       </div>
     </Layout>
   )
