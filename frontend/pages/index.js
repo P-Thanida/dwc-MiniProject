@@ -8,17 +8,17 @@ import styles from '../styles/Home.module.css'
 import { Table, Card, Alert } from 'antd'
 export default function Home({ token }) {
   useEffect(() => {
-    getStudents()
+    getProblems()
   }, [])
-  const [students, setStudents] = useState({
+  const [problems, setProblems] = useState({
   })
-  const getStudents = async () => {
+  const getProblems = async () => {
 
-    let student = await axios.get(`${config.URL}/students`)
-    setStudents(student.data)
+    let problem = await axios.get(`${config.URL}/problems`)
+    setProblems(problem.data)
 
   }
-  const dataSource = students['list']
+  const dataSource = problems['list']
   const columns = [
     {
       title: 'Name',
@@ -32,8 +32,8 @@ export default function Home({ token }) {
     },
     {
       title: 'Problem',
-      dataIndex: 'problem',
-      key: 'problem',
+      dataIndex: 'pb',
+      key: 'pb',
     },
     {
       title: 'Room',

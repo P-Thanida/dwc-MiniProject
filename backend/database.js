@@ -7,9 +7,9 @@ let users = {
     ]
 }
 
-let students = {
-    students: [
-        { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", problem: "Broken water pipe" }
+let problems = {
+    problems: [
+        { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", pb: "Broken water pipe" }
     ]
 }
 
@@ -17,12 +17,12 @@ const SECRET = 'your_jwt_secret'
 const NOT_FOUND = -1
 
 exports.users = users 
-exports.students = students
+exports.problems = problems
 exports.SECRET = SECRET
 exports.NOT_FOUND = NOT_FOUND
 
-exports.setStudents = function(_students) {
-    students = _students;
+exports.setProblems = function(_problems) {
+    problems = _problems;
 }
 
 exports.setUsers = function(_users) { 

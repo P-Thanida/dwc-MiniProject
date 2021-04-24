@@ -7,14 +7,7 @@ import axios from 'axios'
 import config from '../config/config'
 
 export default function Login({ token }) {
-    useEffect(() => {
-        let accesstoken = localStorage.getItem('accessToken')
-        if (accesstoken !== null) {
-            Router.push({
-                pathname: "/alreadylogin",
-            });
-        }
-    }, [])
+   
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')

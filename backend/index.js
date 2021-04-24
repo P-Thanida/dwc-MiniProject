@@ -1,25 +1,21 @@
-
 const express = require('express'),
 app = express(),
 passport = require('passport'),
 port = process.env.PORT || 80,
 cors = require('cors'),
 cookie = require('cookie')
-
 const bcrypt = require('bcrypt')
 const { json } = require('express')
-
 const db = require('./database.js')
 let users = db.users
 
-let students = {
+let problems = {
 list: [
-    { id: 1, fname: "Thanida",surname:"Wichaidit", room: "313", problem: "Broken water pipe"  }
+    { id: 1, fname: "Thanida",surname:"Wichaidit", room: "313", pb: "Broken water pipe"  }
 ]
 }
 
 require('./passport.js')
-
 const router = require('express').Router(),
 jwt = require('jsonwebtoken')
 
@@ -77,32 +73,24 @@ passport.authenticate('jwt', { session: false }),
     res.send(req.user)
 });
 
-/* GET user foo. */
-router.get('/foo',
-passport.authenticate('jwt', { session: false }),
-(req, res, next) => {
-    return res.json({ message: 'foo' })
-});
+router.route('/problems')
+.get((req, res) => res.json(problems))
 
 
-router.route('/students')
-.get((req, res) => res.json(students))
-
-
-router.post('/students',
+router.post('/problems',
 // passport.authenticate('jwt', { session: false }),
 (req, res) => {
     try {
 
-        let newStudent = {}
-        newStudent.id = (students.list.length) ? students.list[students.list.length - 1].id + 1 : 1
-        newStudent.fname = req.body.fname;
-        newStudent.surname = req.body.surname;
-        newStudent.room = req.body.room;
-        newStudent.problem = req.body.problem;
+        let newProblem = {}
+        newProblem.id = (problems.list.length) ? problems.list[problems.list.length - 1].id + 1 : 1
+        newProblem.fname = req.body.fname;
+        newProblem.surname = req.body.surname;
+        newProblem.room = req.body.room;
+        newProblem.pb = req.body.pb;
 
-        students = { "list": [...students.list, newStudent] }
-        res.json(students)
+        problems = { "list": [...problems.list, newProblem] }
+        res.json(problems)
     }
     catch
     {
@@ -112,55 +100,55 @@ router.post('/students',
 
 
 })
-router.route('/students/:std_id')
+router.route('/problems/:std_id')
 .get((req, res) => {
 
-    let ID = students.list.findIndex( item => (item.id === +req.params.std_id))
+    let ID = problems.list.findIndex( item => (item.id === +req.params.std_id))
     if(ID >= 0)
     {
-        res.json(students.list[ID])
+        res.json(problems.list[ID])
     }
     else
     {
-        res.json({status: "Student Error can't find!"})
+        res.json({status: "Error can't find!"})
     }
 
 })
 
 .put( (req,res) => { 
 
-    let ID = students.list.findIndex( item => ( item.id === +req.params.std_id))
+    let ID = problems.list.findIndex( item => ( item.id === +req.params.std_id))
     
     if( ID >= 0)
     {
-        students.list[ID].fname = req.body.fname
-        students.list[ID].surname = req.body.surname
-        students.list[ID].room = req.body.room
-        students.list[ID].ploblem = req.body.ploblem
+        problems.list[ID].fname = req.body.fname
+        problems.list[ID].surname = req.body.surname
+        problems.list[ID].room = req.body.room
+        problems.list[ID].pb = req.body.pb
         
-        res.json(students)
+        res.json(problems)
 
 
     }
     else
     {
-        res.json({status: "Student Error can't find!"})
+        res.json({status: "Error can't find!"})
     }
         
 })
 
 .delete((req, res) => {
 
-    let ID = students.list.findIndex( item => ( item.id === +req.params.std_id))
+    let ID = problems.list.findIndex( item => ( item.id === +req.params.std_id))
 
     if(ID>=0)
     {
-        students.list = students.list.filter( item => item.id !== +req.params.std_id)
-        res.json(students)
+        problems.list = problems.list.filter( item => item.id !== +req.params.std_id)
+        res.json(problems)
     }
     else
     {
-        res.json({status: "Student Error can't find!"})
+        res.json({status: "Error can't find!"})
     }
 
 })

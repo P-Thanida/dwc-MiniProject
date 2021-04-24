@@ -20,6 +20,3 @@ const Layout = props => (
 );
 
 export default Layout;
-// export default function Layout({ children }) {
-//     return <div>{children}</div>
-//   }

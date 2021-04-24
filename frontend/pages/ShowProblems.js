@@ -6,35 +6,35 @@ import { useState, useEffect } from "react"
 
 import config from '../config/config'
 
- const URL = `${config.URL}/students`
-const ShowStudents = ({token}) => {
+ const URL = `${config.URL}/problems`
+const ShowProblems = ({token}) => {
 
-    const [students, setStudents] = useState({
+    const [problems, setProblems] = useState({
         list: [
-            { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", problem: "Broken water pipe" }
+            { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", pb: "Broken water pipe" }
         ]
     })
 
     useEffect(() => {
-        getStudents()
+        getProblems()
     }, [])
 
-    const getStudents = async () => {
+    const getProblems = async () => {
 
-        let student = await axios.get(`${config.URL}/students`)
-        setStudents(student.data)
+        let problem = await axios.get(`${config.URL}/problems`)
+        setProblems(problem.data)
 
     }
 
-    const printStudents = () => {
-        if (students.list && students.list.length)
+    const printProblems = () => {
+        if (problems.list && problems.list.length)
 
-            return students.list.map((item, index) =>
+            return problems.list.map((item, index) =>
             (<li key={index}>
                 ชื่อ: {item.fname}<br></br>
                 นามสกุล: {item.surname}<br></br>
                 ห้อง: {item.room}<br></br>
-                แจ้งซ้อม: {item.problem}<br></br>
+                แจ้งซ้อม: {item.pb}<br></br>
             </li>)
             )
     }
@@ -44,16 +44,20 @@ const ShowStudents = ({token}) => {
             <div >
                 <Header />
                 <br></br>
-                {JSON.stringify(students.students)}
+
+                {JSON.stringify(problems.problems)}
                 <ul>
-                    {printStudents()}
+                    <h1>
+                        Please Log in
+                    </h1>
+                    {printProblems()}
                 </ul>
             </div>
         </Layout>
     )
 }
 
-export default AuthStudents(ShowStudents)
+export default AuthStudents(ShowProblems)
 
 export function getServerSideProps({ req, res }) {
     return { props: { token: req.cookies.token || "" } };

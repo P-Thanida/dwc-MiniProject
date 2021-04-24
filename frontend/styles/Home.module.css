@@ -13,7 +13,7 @@
 }
 
 .title {
-    color: white;
+    color: black;
     text-align: center;
     padding: 50px;
     font-size: 2rem;
@@ -48,15 +48,6 @@
     text-align: center;
 }
 
-.form1 {
-    text-align: left;
-    flex-direction: column;
-
-}
-
-.form2 {
-    text-align: right;
-}
 
 .cardform {
     max-width: 30%;
@@ -80,4 +71,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.profile{
+    text-align: center;
 }

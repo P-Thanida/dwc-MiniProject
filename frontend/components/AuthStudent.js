@@ -7,7 +7,7 @@ const AuthStudents = WrappedComponent => {
         const router = useRouter()
         useEffect(() => {
             if (!token)
-                router.push('/ShowStudents')
+                router.push('/ShowProblems')
         }, [token])
         return (<WrappedComponent {...props} />)
     }
