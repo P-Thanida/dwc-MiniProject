@@ -50,7 +50,7 @@ export default function Home({ token }) {
       </Head>
       <div >
         <Header />
-        <div className={styles.title}>Welcome to the system to report repair<br></br>
+        <div className={styles.title}>Report repair of damaged equipment<br></br>
           <div style={{ textAlign: 'left' }}>ปัญหาขณะนี้</div>
         </div>
         <Card style={{ marrgin: 10 }}>
