@@ -1,39 +1,16 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
-
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import withAuth from '../components/withAuth'
 import config from '../config/config'
 import Header from '../components/header'
-import { Col, Row, Card, Space, Divider } from 'antd'
+
 
 const Profile1 = ({ token }) => {
 
     const [user, setUser] = useState({})
-    const [problems, setProblems] = useState({
-        list: [
-            { id: 1, fname: "Thanida", surname: "Wichaidit", room: "313", pb: "ท่อแตก" }
-        ]})
-   
-
-
-
-    const printData = () => {
-
-        if (problems.list && problems.list.length)
-            return problems.list.map((item, index) =>
-            (
-                <Card className={styles.reporterCard}>
-                    <p> ห้อง : {item.room}</p>
-                    <p> ปัญหา : {item.pb}</p>
-                </Card>
-            )
-            )
-    }
-
-
 
     useEffect(() => {
         profileUser()
